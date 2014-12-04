@@ -6,9 +6,18 @@
 package jeudego;
 
 /**
- *
+ * 
  * @author zhaoshuli
  */
 public enum Couleur {
   NOIR, BLANC;
+
+  @Override
+  public String toString() {
+    return this == NOIR ? "noir" : "blanc";
+  }
+
+  public Couleur autre() {
+    return this == NOIR ? BLANC : NOIR;
+  }
 }

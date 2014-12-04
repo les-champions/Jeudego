@@ -38,5 +38,45 @@ public class Goban {
   public PierrePoint getPierre(int x,int y){
     return pointJoueArray[x][y];
   }
-  
+
+  /**
+   * Permet de savoir de quel joueur c'est le tour
+   * @return la couleur du joueur dont  c'est le tour
+   */
+  public Couleur getTour() {
+    return tour;
+  }
+
+  /**
+   * @param x
+   * @param y
+   * @return true si la pierre a bien pu être posée 
+   */
+  public boolean tourDeJeu(int x, int y) {
+    if (estMouvementValide(x,y)) {
+      ajouterPierre(x, y);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  private boolean estMouvementValide(int x, int y) {
+    // TODO implémenter ça
+    return true;
+  }
+
+  /**
+   * Passe le tour du joueur actuel
+   * @return
+   */
+  public boolean passerTour() {
+    tour = tour.autre();
+    return true;
+  }
+
+  public boolean partieTerminee() {
+    // TODO Implémenter ça
+    return false;
+  }
 }

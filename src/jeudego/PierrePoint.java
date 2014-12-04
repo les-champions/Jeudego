@@ -5,24 +5,23 @@
  */
 package jeudego;
 
-
 /**
- *
+ * 
  * @author zhaoshuli
  */
-public class PierrePoint{
+public class PierrePoint {
   int x;
   int y;
   Couleur couleur;
-  
-  PierrePoint(int x, int y, Couleur c){ 
-    this.x=x;
-    this.y=y;
-    this.couleur=c;
+
+  PierrePoint(int x, int y, Couleur c) {
+    this.x = x;
+    this.y = y;
+    this.couleur = c;
   }
-  
-  public boolean equals(PierrePoint pierre){
-    return (pierre.x==this.x && pierre.y==this.y && pierre.couleur==this.couleur);
+
+  public boolean equals(PierrePoint pierre) {
+    return (pierre.x == this.x && pierre.y == this.y && pierre.couleur == this.couleur);
   }
-  
+
 }
