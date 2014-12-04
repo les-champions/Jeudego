@@ -5,7 +5,6 @@
  */
 package jeudego;
 
-import static jeudego.Couleur.BLANC;
 
 /**
  *
@@ -22,9 +21,8 @@ public class PierrePoint{
     this.couleur=c;
   }
   
-  PierrePoint(){
-    this.x=0;
-    this.y=0;
-    this.couleur= BLANC;
+  public boolean equals(PierrePoint pierre){
+    return (pierre.x==this.x && pierre.y==this.y && pierre.couleur==this.couleur);
   }
+  
 }

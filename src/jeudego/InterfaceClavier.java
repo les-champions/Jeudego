@@ -5,10 +5,29 @@
  */
 package jeudego;
 
+import java.util.Scanner;
+import static jeudego.Couleur.BLANC;
+import static jeudego.Couleur.NOIR;
+
 /**
  *
  * @author zhaoshuli
  */
-public class PierreGet {
-  
+public class InterfaceClavier {
+  public PierrePoint getPierre(){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Entrer l'abscisse");
+    int i= sc.nextInt();
+    System.out.println("Entrer l'ordonnée");
+    int j= sc.nextInt();   
+    System.out.println("Entrer la couleur(B pour Blanc/N pour Noir)");
+    String s= sc.nextLine();
+    Couleur c;
+    if(s.equals("B"))
+      c=BLANC;
+    else 
+      c=NOIR;
+    return new PierrePoint(i,j,c);
+  }
+
 }
