@@ -15,15 +15,16 @@ import static jeudego.Couleur.*;
 
 
 public class Goban {
-  public static final int width=9;
+  public int width=9;
   private PierrePoint pointJoueArray[][];//liste des pierres poses sur le plateau
   private Couleur tour; // qui a son tour
   
   
   
-  Goban(){
+  Goban(int width){
     pointJoueArray=new PierrePoint[width][width];
     tour=NOIR;
+    this.width = width;
   }
   
   /**
@@ -62,7 +63,6 @@ public class Goban {
   }
 
   private boolean estMouvementValide(int x, int y) {
-    // TODO implémenter ça
     return true;
   }
 

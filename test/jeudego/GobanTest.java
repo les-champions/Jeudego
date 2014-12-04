@@ -47,7 +47,7 @@ public class GobanTest {
     int x = 0;
     int y = 0;
     PierrePoint pierre= new PierrePoint(x, y, Couleur.NOIR);
-    Goban instance = new Goban();
+    Goban instance = new Goban(9);
     instance.ajouterPierre(x, y);
     assertTrue(instance.getPierre(x, y).equals(pierre));
   }
@@ -60,7 +60,7 @@ public class GobanTest {
     System.out.println("getPierre");
     int x = 2;
     int y = 3;
-    Goban instance = new Goban();
+    Goban instance = new Goban(9);
     PierrePoint expResult = null;
     PierrePoint result = instance.getPierre(x, y);
     assertEquals(expResult, result);
