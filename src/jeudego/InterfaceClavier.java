@@ -5,9 +5,8 @@
  */
 package jeudego;
 
+import static jeudego.Couleur.*;
 import java.util.Scanner;
-import static jeudego.Couleur.BLANC;
-import static jeudego.Couleur.NOIR;
 
 /**
  *
@@ -27,6 +26,7 @@ public class InterfaceClavier {
       c=BLANC;
     else 
       c=NOIR;
+    sc.close();
     return new PierrePoint(i,j,c);
   }
 

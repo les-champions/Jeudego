@@ -5,9 +5,7 @@
  */
 package jeudego;
 
-import java.util.Scanner;
-import static jeudego.Couleur.BLANC;
-import static jeudego.Couleur.NOIR;
+import static jeudego.Couleur.*;
 
 
 /**
