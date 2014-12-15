@@ -43,13 +43,12 @@ public class PierrePointTest {
     @Test
     public void testEquals() {
         System.out.println("equals");
-        PierrePoint pierre = null;
-        PierrePoint instance = null;
-        boolean expResult = false;
-        boolean result = instance.equals(pierre);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        PierrePoint pierre1 =new PierrePoint(2, 3, Couleur.NOIR);
+        PierrePoint pierre2 =new PierrePoint(3, 3, Couleur.NOIR);
+        PierrePoint instance = new PierrePoint(2, 3, Couleur.NOIR);
+        assertEquals(true, instance.equals(pierre1));
+        assertEquals(false, instance.equals(pierre2));
+
     }
     
 }
