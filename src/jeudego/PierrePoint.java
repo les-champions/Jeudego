@@ -32,7 +32,13 @@ public class PierrePoint {
   }
   
   public boolean equalsPosition(PierrePoint pierre) {
-    return (pierre.x == this.x && pierre.y == this.y);
+    if (pierre==null){
+      return false;
+    }
+    else{
+      return (pierre.x == this.x && pierre.y == this.y);
+    }
+    
   }
 
   public String toString(){
