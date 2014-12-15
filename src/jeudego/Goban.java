@@ -79,7 +79,18 @@ public class Goban {
   }
 
   private boolean estMouvementValide(int x, int y) {
-    return true;
+    if (estSurPlateau(x,y)){
+      PierrePoint pierre=new PierrePoint(x, y);
+      for (PierrePoint[] ligne : pointJoueArray){
+        for (PierrePoint p: ligne){
+          pierre.equalsPosition(p);
+          return false;
+        }   
+      }
+      return true;
+    }
+    else
+      return false;  
   }
 
   /**
