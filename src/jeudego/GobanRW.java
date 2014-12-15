@@ -12,6 +12,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.StringTokenizer;
+import static jeudego.Couleur.BLANC;
+import static jeudego.Couleur.NOIR;
 
 /**
  *
@@ -21,23 +23,22 @@ public class GobanRW {
     
     public static void writeToFile(Goban goban, String filename) {
         
-        int compteur=0; //Permet de compter le nombre de caractères insérés.
-
         try {
 
-            BufferedWriter bw = new BufferedWriter(new FileWriter(filename+".pgm"));
-            bw.write("P2 \n#\n");
-            bw.write(goban.getL()+" "+goban.getH()+"\n");
-            bw.write(Integer.toString(PGMImage.greyScale)+"\n");
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filename+".txt"));
+            bw.write(goban.getWidth()+" <- size");
+            bw.newLine();
             
-            for(int i=0;i<(image.getL()*image.getH());i++ ){
-                bw.write(Integer.toString(image.getPixelArray().get(i))+" ");
-                compteur+= 4;
-                if((i+1)%image.getL()==0 || compteur>70)
-                {
-                    bw.newLine();
-                    compteur=0;
+            for(PierrePoint pArray[] : goban.getPointJoueArray()){
+                for(PierrePoint p : pArray){
+                    if(p == null){
+                        bw.write(" ");
+                    }
+                    else{
+                        bw.write(p.toString());
+                    }
                 }
+                bw.newLine();    
             }   
             bw.close();
 
@@ -47,43 +48,46 @@ public class GobanRW {
         }
     }
     
-    public static PGMImage readFromFile(String filename) throws FileNotFoundException, IOException {
+    public static Goban readFromFile(String filename) throws FileNotFoundException, IOException {
 
        
             String ligne;
-            BufferedReader br = new BufferedReader(new FileReader(filename));  
+            BufferedReader br = new BufferedReader(new FileReader(filename+".txt"));  
             StringTokenizer tokenizer;
-            int i=0;            
-            int l,h;
-            
-            //On saute les deux premières lignes
-            br.readLine();
-            br.readLine();
+            int width;
             
             //On récupère largeur et hauteur
             ligne=br.readLine();
             tokenizer  = new StringTokenizer(ligne," ");
-            l = Integer.parseInt(tokenizer.nextToken());
-            h = Integer.parseInt(tokenizer.nextToken());
+            width = Integer.parseInt(tokenizer.nextToken());
             
-            //On crée l'objet PGMImage
-            PGMImage image = new PGMImage(l,h);
+            //On crée l'objet Goban
+            Goban goban = new Goban(width);
             
-            //On saute la ligne de niveau de gris max
-            br.readLine();
             
-            //On remplit le pixelArray
+            //On remplit le tableau
+            Couleur c;
+            int i=0;
+            int j=0;
+            
             while((ligne = br.readLine())!=null){
                 tokenizer  = new StringTokenizer(ligne," \t");
                 while(tokenizer.hasMoreTokens()){
-                    image.getPixelArray().add(i,Integer.parseInt(tokenizer.nextToken()));
+                    if("N".equals(tokenizer.nextToken())){
+                        c = NOIR;
+                    }
+                    else{
+                        c = BLANC;
+                    }
+                    goban.getPointJoueArray()[i][j]=new PierrePoint(i, j, c);
                     i++;                    
                 }
+                j++;
             }            
                        
             br.close();
             
-            return image;
+            return goban;
         
     }
 }
