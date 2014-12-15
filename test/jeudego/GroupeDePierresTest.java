@@ -11,18 +11,22 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.Random;
 
 /**
  *
  * @author IAZERTYUIOPI
  */
-public class JeuTest {
+public class GroupeDePierresTest {
     
-    public JeuTest() {
+    public GroupeDePierresTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
+        
+        
+        
     }
     
     @AfterClass
@@ -38,15 +42,15 @@ public class JeuTest {
     }
 
     /**
-     * Test of jouer method, of class Jeu.
+     * Test of add method, of class GroupeDePierres.
      */
     @Test
-    public void testJouer() {
-        System.out.println("jouer");
-        Jeu instance = null;
-        instance.jouer();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testajouter() {
+       /* GroupeDePierres instance = new GroupeDePierres;
+        PierrePoint expResult = null;
+        PierrePoint result = instance.ajouter();
+        assertEquals(expResult, result);
+        */
     }
     
 }
