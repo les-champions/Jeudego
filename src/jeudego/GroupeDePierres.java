@@ -49,4 +49,10 @@ public class GroupeDePierres {
     {
         groupe.removeAll(p);
     }
+    
+    
+    public Boolean appartientA(PierrePoint p)
+    {
+        return groupe.contains(p);
+    }
 }
