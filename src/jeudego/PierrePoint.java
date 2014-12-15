@@ -5,6 +5,8 @@
  */
 package jeudego;
 
+import static jeudego.Couleur.NOIR;
+
 /**
  * 
  * @author zhaoshuli
@@ -24,4 +26,11 @@ public class PierrePoint {
     return (pierre.x == this.x && pierre.y == this.y && pierre.couleur == this.couleur);
   }
 
+  public String toString(){
+      String res;
+      res = this.couleur == NOIR ? "N" : "B";
+      return res;
+  }
+  
+  
 }
