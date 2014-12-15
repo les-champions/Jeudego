@@ -99,4 +99,8 @@ public class Goban {
   public int getWidth() {
     return this.width;
   }
+
+  public PierrePoint[][] getPointJoueArray() {
+    return this.pointJoueArray;
+  }
 }
