@@ -23,7 +23,7 @@ public class Goban {
   
   
   
-  Goban(int width){
+  public Goban(int width){
     pointJoueArray=new PierrePoint[width][width];
     tour=NOIR;
     this.width = width;
