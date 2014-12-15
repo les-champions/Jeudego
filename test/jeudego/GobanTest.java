@@ -72,7 +72,7 @@ public class GobanTest {
     int y = 3;
     Goban instance = new Goban(9);
     ArrayList<PierrePoint> expResult =null;
-    ArrayList<PierrePoint> result=instance.getPierresAutorDe(x, y);
+    ArrayList<PierrePoint> result=instance.getPierresAutourDe(x, y);
     assertEquals(expResult, result);
   }
 }

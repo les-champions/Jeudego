@@ -38,12 +38,22 @@ public class Goban {
     pointJoueArray[x][y]=new PierrePoint(x, y, tour);
   }
   
-  public PierrePoint getPierre(int x,int y){
-    return pointJoueArray[x][y];
+  public boolean estSurPlateau(int x, int y) {
+    return (x>=0 && y>=0 && x<width && y<width);
   }
   
-  public ArrayList<PierrePoint> getPierresAutorDe(int x, int y) {
-    return null;
+  public PierrePoint getPierre(int x,int y){
+    return estSurPlateau(x, y) ? pointJoueArray[x][y] : null;
+  }
+  
+  public ArrayList<PierrePoint> getPierresAutourDe(int x, int y) {
+    ArrayList<PierrePoint> pierres = new ArrayList<>();
+    int[][] positions = {{-1,0},{1,0},{0,-1},{0,1}};
+    for (int[] pos : positions){
+      PierrePoint pierre = getPierre(x+pos[0], y+pos[1]);
+      if (pierre != null) pierres.add(pierre);
+    }
+    return pierres;
   }
 
   /**
