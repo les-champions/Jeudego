@@ -1,56 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jeudego;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import static org.junit.Assert.*;
-import java.util.Random;
 
-/**
- *
- * @author IAZERTYUIOPI
- */
+import org.junit.Test;
+
 public class GroupeDePierresTest {
-    
-    public GroupeDePierresTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-        
-        
-        
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
-    /**
-     * Test of add method, of class GroupeDePierres.
+  private Goban createGoban() {
+    Goban g = new Goban(4);
+    /*
+      Plateau:
+      * + + 
+      * + * *
+      *     
      */
-    @Test
-    public void testajouter() {
-       /* GroupeDePierres instance = new GroupeDePierres;
-        PierrePoint expResult = null;
-        PierrePoint result = instance.ajouter();
-        assertEquals(expResult, result);
-        */
+    int[][] tours = {
+        {0,0},
+        {1,1},
+        {0,1},
+        {2,1},
+        {1,0}
+    };
+    for (int[] pos : tours) {
+      if (pos != null)
+        g.tourDeJeu(pos[0], pos[1]);
     }
-    
+    return g;
+  }
+
+  @Test
+  public void test() {
+    fail("Not yet implemented");
+  }
+
 }
