@@ -5,24 +5,37 @@
  */
 package jeudego;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author marc
  */
 public class GroupeDePierres {
     
-    PierrePoint start;
-    Goban ground;
-    
+    PierrePoint debut;
+    Goban plateau;
+    ArrayList<PierrePoint> groupe;
     
     public GroupeDePierres(PierrePoint p, Goban g)
     {
-        start = p;
-        ground = g;
+        debut = p;
+        plateau = g;
+        groupe = new ArrayList<PierrePoint>();
+        groupe.add(p);
+        
+
     }
     
-    public PierrePoint add()
+    public void ajouter(PierrePoint p)
     {
-        return null;
+        for (PierrePoint k : plateau.getPierresAutorDe(p.x, p.y))
+        {
+            if(k != null)
+            {
+                groupe.add(k);
+                ajouter(k);
+            }
+        }
     }
 }
