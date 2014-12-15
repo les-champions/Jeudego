@@ -6,6 +6,7 @@
 package jeudego;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  *
@@ -13,13 +14,13 @@ import java.util.ArrayList;
  */
 public class GroupeDePierres {
     
-    PierrePoint debut;
+    Couleur c;
     Goban plateau;
     ArrayList<PierrePoint> groupe;
     
     public GroupeDePierres(PierrePoint p, Goban g)
     {
-        debut = p;
+        c = p.couleur;
         plateau = g;
         groupe = new ArrayList<PierrePoint>();
         groupe.add(p);
@@ -31,11 +32,21 @@ public class GroupeDePierres {
     {
         for (PierrePoint k : plateau.getPierresAutorDe(p.x, p.y))
         {
-            if(k != null)
+            if(k != null && k.couleur == c)
             {
                 groupe.add(k);
                 ajouter(k);
             }
         }
+    }
+    
+    public void supprimer(PierrePoint p)
+    {
+        groupe.remove(p);
+    }
+    
+    public void supprimer(Collection<PierrePoint> p)
+    {
+        groupe.removeAll(p);
     }
 }
