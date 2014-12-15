@@ -42,7 +42,7 @@ public class Goban {
     return pointJoueArray[x][y];
   }
   
-  public ArrayList<PierrePoint> getPierresAutorDe(int x, int y) {
+  public ArrayList<PierrePoint> getPierresAutourDe(int x, int y) {
     return null;
   }
 
