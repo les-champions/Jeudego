@@ -30,7 +30,7 @@ public class GroupeDePierres {
     
     public void ajouter(PierrePoint p)
     {
-        for (PierrePoint k : plateau.getPierresAutorDe(p.x, p.y))
+        for (PierrePoint k : plateau.getPierresAutourDe(p.x, p.y))
         {
             if(k != null && k.couleur == c)
             {
