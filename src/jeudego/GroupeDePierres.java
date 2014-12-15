@@ -7,16 +7,23 @@ package jeudego;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 /**
  *
  * @author marc
  */
-public class GroupeDePierres {
+public class GroupeDePierres implements Iterable<PierrePoint> {
     
     Couleur c;
     Goban plateau;
     ArrayList<PierrePoint> groupe;
+    
+    public Iterator<PierrePoint> iterator()
+    {
+        Iterator<PierrePoint> iPP = groupe.iterator();
+        return iPP;
+    }
     
     public GroupeDePierres(PierrePoint p, Goban g)
     {
@@ -24,11 +31,12 @@ public class GroupeDePierres {
         plateau = g;
         groupe = new ArrayList<PierrePoint>();
         groupe.add(p);
+        ajouter(p);
         
 
     }
     
-    public void ajouter(PierrePoint p)
+    private void ajouter(PierrePoint p)
     {
         for (PierrePoint k : plateau.getPierresAutourDe(p.x, p.y))
         {
@@ -40,7 +48,7 @@ public class GroupeDePierres {
         }
     }
     
-    public void supprimer(PierrePoint p)
+   /*public void supprimer(PierrePoint p)
     {
         groupe.remove(p);
     }
@@ -48,8 +56,7 @@ public class GroupeDePierres {
     public void supprimer(Collection<PierrePoint> p)
     {
         groupe.removeAll(p);
-    }
-    
+    }*/    
     
     public Boolean appartientA(PierrePoint p)
     {
