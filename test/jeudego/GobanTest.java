@@ -5,6 +5,7 @@
  */
 package jeudego;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -61,10 +62,17 @@ public class GobanTest {
     int x = 2;
     int y = 3;
     Goban instance = new Goban(9);
-    PierrePoint expResult = null;
+    PierrePoint expResult =null;
     PierrePoint result = instance.getPierre(x, y);
     assertEquals(expResult, result);
-    
   }
-  
+  public void testGetPierreAutourDe() {
+    System.out.println("getPierreAutourDe");
+    int x = 2;
+    int y = 3;
+    Goban instance = new Goban(9);
+    ArrayList<PierrePoint> expResult =null;
+    ArrayList<PierrePoint> result=instance.getPierresAutorDe(x, y);
+    assertEquals(expResult, result);
+  }
 }
