@@ -95,4 +95,8 @@ public class Goban {
     // TODO Implémenter ça
     return false;
   }
+  
+  public int getWidth() {
+    return this.width;
+  }
 }
