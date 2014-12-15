@@ -7,6 +7,8 @@ package jeudego;
 
 import static jeudego.Couleur.*;
 
+import java.util.ArrayList;
+
 
 /**
  *
@@ -38,6 +40,10 @@ public class Goban {
   
   public PierrePoint getPierre(int x,int y){
     return pointJoueArray[x][y];
+  }
+  
+  public ArrayList<PierrePoint> getPierresAutorDe(int x, int y) {
+    return null;
   }
 
   /**
