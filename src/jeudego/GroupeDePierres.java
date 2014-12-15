@@ -32,7 +32,7 @@ public class GroupeDePierres {
     {
         for (PierrePoint k : plateau.getPierresAutourDe(p.x, p.y))
         {
-            if(k != null && k.couleur == c)
+            if(k != null && k.couleur == c && !groupe.contains(k))
             {
                 groupe.add(k);
                 ajouter(k);
@@ -54,5 +54,21 @@ public class GroupeDePierres {
     public Boolean appartientA(PierrePoint p)
     {
         return groupe.contains(p);
+    }
+    
+    public int liberteRestantes()
+    {
+        int lr = 0 ;
+        for(PierrePoint p : groupe)
+        {
+            for( PierrePoint n : plateau.getPierresAutourDe(p.x, p.y))
+            {
+                if(n == null)
+                {
+                    lr+=1;
+                }
+            }
+        }
+        return lr;
     }
 }
