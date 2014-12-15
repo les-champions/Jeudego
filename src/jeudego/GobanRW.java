@@ -23,19 +23,24 @@ public class GobanRW {
     
     public static void writeToFile(Goban goban, String filename) {
         
+        int i=0;
+        int j=0;
+        int width = goban.getWidth();
+        PierrePoint[][] arr = goban.getPointJoueArray();
+        
         try {
 
             BufferedWriter bw = new BufferedWriter(new FileWriter(filename+".txt"));
-            bw.write(goban.getWidth()+" <- size");
+            bw.write(width+" <- taille");
             bw.newLine();
             
-            for(PierrePoint pArray[] : goban.getPointJoueArray()){
-                for(PierrePoint p : pArray){
-                    if(p == null){
-                        bw.write(" ");
+            for(i=0;i<width;i++){
+                for(j=0;j<width;j++){
+                    if(arr[j][i] == null){
+                        bw.write("_ ");
                     }
                     else{
-                        bw.write(p.toString());
+                        bw.write(arr[j][i].toString()+" ");
                     }
                 }
                 bw.newLine();    
@@ -69,19 +74,28 @@ public class GobanRW {
             Couleur c;
             int i=0;
             int j=0;
+            String readToken;
             
             while((ligne = br.readLine())!=null){
                 tokenizer  = new StringTokenizer(ligne," \t");
                 while(tokenizer.hasMoreTokens()){
-                    if("N".equals(tokenizer.nextToken())){
+                    readToken = tokenizer.nextToken();
+                    System.out.print(readToken.equals("N"));
+                    if(readToken.equals("N")){
                         c = NOIR;
                     }
                     else{
-                        c = BLANC;
+                        if(readToken.equals("B")){
+                            c = BLANC;}
+                        else{
+                            c=null;}
                     }
-                    goban.getPointJoueArray()[i][j]=new PierrePoint(i, j, c);
+                    if(c != null){
+                        goban.getPointJoueArray()[i][j]=new PierrePoint(i, j, c);
+                    }
                     i++;                    
                 }
+                i=0;
                 j++;
             }            
                        

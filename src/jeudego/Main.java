@@ -22,8 +22,7 @@ public class Main {
   public static void main(String[] args) throws FileNotFoundException,IOException{
     Goban goban = new Goban(9);
     
-    GobanRW.writeToFile(goban, "testwrite");
-    Goban testgoban = GobanRW.readFromFile("testwrite");
+    Goban testgoban = GobanRW.readFromFile("testread");
     GobanRW.writeToFile(testgoban,"testwrite2");
     
     InterfaceClavier ui = new InterfaceClavier(goban);
