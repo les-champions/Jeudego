@@ -25,12 +25,18 @@ public class GobanRW {
         
         try {
 
-            BufferedWriter bw = new BufferedWriter(new FileWriter(filename+".pgm"));
-            bw.write(goban.getWidth()+" <- size \n");
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filename+".txt"));
+            bw.write(goban.getWidth()+" <- size");
+            bw.newLine();
             
             for(PierrePoint pArray[] : goban.getPointJoueArray()){
                 for(PierrePoint p : pArray){
-                    bw.write(p.toString());
+                    if(p == null){
+                        bw.write(" ");
+                    }
+                    else{
+                        bw.write(p.toString());
+                    }
                 }
                 bw.newLine();    
             }   
@@ -46,7 +52,7 @@ public class GobanRW {
 
        
             String ligne;
-            BufferedReader br = new BufferedReader(new FileReader(filename));  
+            BufferedReader br = new BufferedReader(new FileReader(filename+".txt"));  
             StringTokenizer tokenizer;
             int width;
             
