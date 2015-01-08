@@ -7,6 +7,7 @@ package jeudego;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -16,13 +17,13 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
     
     Couleur c;
     Goban plateau;
-    ArrayList<PierrePoint> groupe;
+    List<PierrePoint> groupe;
     
     @Override
     public Iterator<PierrePoint> iterator()
     {
-        Iterator<PierrePoint> iPP = groupe.iterator();
-        return iPP;
+        //Iterator<PierrePoint> iPP = groupe.iterator();
+        return groupe.iterator();
     }
     
     public GroupeDePierres(PierrePoint p, Goban g)
@@ -65,6 +66,13 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
     
     public int liberteRestantes()
     {
+        //Marche 
+        /*
+        BB*
+        B**
+        ***
+        lr => 3 // 4
+        */
         int lr = 0 ;
         for(PierrePoint p : groupe)
         {

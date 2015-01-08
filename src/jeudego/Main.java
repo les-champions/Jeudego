@@ -20,7 +20,8 @@ public class Main {
      * @throws java.io.FileNotFoundException
    */
   public static void main(String[] args) throws FileNotFoundException,IOException{
-    Goban goban = new Goban(9);
+    final int size = 9;
+    Goban goban = new Goban(size);
     
     Goban testgoban = GobanRW.readFromFile("testread");
     GobanRW.writeToFile(testgoban,"testwrite2");

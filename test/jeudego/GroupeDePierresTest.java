@@ -100,12 +100,13 @@ public class GroupeDePierresTest {
     @Test
     public void testLiberteRestantes() {
         System.out.println("liberteRestantes");
-        GroupeDePierres instance = null;
-        int expResult = 0;
-        int result = instance.liberteRestantes();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Goban g = createGoban();
+        ArrayList<PierrePoint> groupeAttendu = new ArrayList<>();
+        groupeAttendu.add(g.getPierre(0, 0));
+        groupeAttendu.add(g.getPierre(0, 1));
+        groupeAttendu.add(g.getPierre(1, 0));
+        GroupeDePierres groupe = new GroupeDePierres(g.getPierre(0, 0), g);
+        assertEquals(groupe.liberteRestantes(), 3);
     }
 
 }
