@@ -6,7 +6,6 @@
 package jeudego;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 
 /**
@@ -19,6 +18,7 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
     Goban plateau;
     ArrayList<PierrePoint> groupe;
     
+    @Override
     public Iterator<PierrePoint> iterator()
     {
         Iterator<PierrePoint> iPP = groupe.iterator();
@@ -29,7 +29,7 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
     {
         c = p.couleur;
         plateau = g;
-        groupe = new ArrayList<PierrePoint>();
+        groupe = new ArrayList<>();
         groupe.add(p);
         ajouter(p);
         

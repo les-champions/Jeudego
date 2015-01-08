@@ -1,13 +1,35 @@
 package jeudego;
 
+import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 
 import org.junit.Test;
 
 public class GroupeDePierresTest {
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
+    }
 
   private Goban createGoban() {
     Goban g = new Goban(4);
@@ -47,5 +69,43 @@ public class GroupeDePierresTest {
       }
     }
   }
+
+    /**
+     * Test of iterator method, of class GroupeDePierres.
+     */
+    @Test
+    public void testIterator() {
+        System.out.println("iterator");
+        Goban g = createGoban();
+        ArrayList<PierrePoint> groupeAttendu = new ArrayList<>();
+        groupeAttendu.add(g.getPierre(0, 0));
+        groupeAttendu.add(g.getPierre(0, 1));
+        groupeAttendu.add(g.getPierre(1, 0));
+        GroupeDePierres groupe = new GroupeDePierres(g.getPierre(0, 0), g);
+
+        int i = 0 ;
+        
+        for( PierrePoint p : groupe)
+        {
+            assertEquals(p,groupeAttendu.get(i));
+            i++;
+        }
+        
+        
+    }
+
+    /**
+     * Test of liberteRestantes method, of class GroupeDePierres.
+     */
+    @Test
+    public void testLiberteRestantes() {
+        System.out.println("liberteRestantes");
+        GroupeDePierres instance = null;
+        int expResult = 0;
+        int result = instance.liberteRestantes();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 
 }

@@ -66,7 +66,7 @@ public class GobanTest {
     PierrePoint result = instance.getPierre(x, y);
     assertEquals(expResult, result);
   }
-  public void testGetPierreAutourDe() {
+  public void testGetPierresAutourDe() {
     System.out.println("getPierreAutourDe");
     int x = 2;
     int y = 3;
@@ -79,4 +79,109 @@ public class GobanTest {
     ArrayList<PierrePoint> result=instance.getPierresAutourDe(x, y);
     assertEquals(expResult, result);
   }
+
+    /**
+     * Test of estSurPlateau method, of class Goban.
+     */
+    @Test
+    public void testEstSurPlateau() {
+            //return (x>=0 && y>=0 && x<width && y<width);
+
+        System.out.println("testEstSurPlateau");
+        
+        Goban g = new Goban(5);
+        assertEquals(g.estSurPlateau(6, 6),false);
+        assertEquals(g.estSurPlateau(0, 0),true);
+        assertEquals(g.estSurPlateau(-1, 3),false);
+        assertEquals(g.estSurPlateau(3, 3),true);
+
+        
+        // TODO review the generated test code and remove the default call to fail.
+    }
+
+    /**
+     * Test of getTour method, of class Goban.
+     */
+    @Test
+    public void testGetTour() {
+        System.out.println("getTour");
+        Goban instance = null;
+        Couleur expResult = null;
+        Couleur result = instance.getTour();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of tourDeJeu method, of class Goban.
+     */
+    @Test
+    public void testTourDeJeu() {
+        System.out.println("tourDeJeu");
+        int x = 0;
+        int y = 0;
+        Goban instance = null;
+        boolean expResult = false;
+        boolean result = instance.tourDeJeu(x, y);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of passerTour method, of class Goban.
+     */
+    @Test
+    public void testPasserTour() {
+        System.out.println("passerTour");
+        Goban instance = null;
+        boolean expResult = false;
+        boolean result = instance.passerTour();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of partieTerminee method, of class Goban.
+     */
+    @Test
+    public void testPartieTerminee() {
+        System.out.println("partieTerminee");
+        Goban instance = null;
+        boolean expResult = false;
+        boolean result = instance.partieTerminee();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getWidth method, of class Goban.
+     */
+    @Test
+    public void testGetWidth() {
+        System.out.println("getWidth");
+        Goban instance = null;
+        int expResult = 0;
+        int result = instance.getWidth();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getPointJoueArray method, of class Goban.
+     */
+    @Test
+    public void testGetPointJoueArray() {
+        System.out.println("getPointJoueArray");
+        Goban instance = null;
+        PierrePoint[][] expResult = null;
+        PierrePoint[][] result = instance.getPointJoueArray();
+        assertArrayEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 }

@@ -51,4 +51,14 @@ public class PierrePointTest {
 
     }
     
+    @Test
+    public void testtoString()
+    {
+        System.out.println("toString");
+        PierrePoint pierre1 =new PierrePoint(2, 3, Couleur.NOIR);
+        PierrePoint pierre2 =new PierrePoint(3, 3, Couleur.BLANC);
+        assertEquals('B', pierre2.toString());
+        assertEquals('N', pierre1.toString());
+    }
+    
 }
