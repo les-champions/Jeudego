@@ -94,7 +94,7 @@
 <!-- GENERATE JAVADOC -->    
 
     <target name="javaDoc" depends="getPaths">
-      <javadoc packagenames="com.dummy.test.*"
+      <javadoc packagenames="jeudego.*"
              sourcepath="${src.location}"
              destdir="${docs.location}"
              author="true"
@@ -109,6 +109,32 @@
       <link offline="true" href="http://docs.oracle.com/javase/7/docs/api/" packagelistLoc="C:\tmp"/>
       <link href="http://docs.oracle.com/javase/7/docs/api/"/>
     </javadoc>
+    </target>
+
+
+<!-- LANCER SONAR -->    
+
+    <target name="runSonar" depends="getPaths">
+
+      <exec executable="cmd.exe" spawn="true">
+        <arg value="/c C:\Users\IAZERTYUIOPI\Downloads\sonarqube-4.5.2\bin\windows-x86-64\StartSonar.bat"/>
+      </exec>
+
+      <waitfor maxwait="10" maxwaitunit="second">
+        <http url="http://localhost:9000/dashboard/index/TPSonar"/>
+      </waitfor>
+
+      <exec executable="C:\Users\IAZERTYUIOPI\Downloads\sonar-runner-2.4\bin\sonar-runner.bat"/>
+
+      <exec executable="explorer.exe">
+        <arg value="http://localhost:9000/dashboard/index/TPSonar"/>
+      </exec>
+
+
+    </target>
+
+
+    <target name="fairelecafé" depends="getPaths,javaDoc,runTests,runSonar">
     </target>
 
 
