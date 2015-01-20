@@ -23,6 +23,7 @@ public class InterfaceClavier {
     if (sc == null) {
       sc = new Scanner(System.in);
     }
+    System.out.println(goban.toString());
     System.out.println("Au tour de " + goban.getTour() + " de jouer.");
     System.out.println("Entrer l'abscisse, ou -1 pour passer votre tour");
     int x = sc.nextInt();

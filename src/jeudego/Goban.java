@@ -72,6 +72,7 @@ public class Goban {
   public boolean tourDeJeu(int x, int y) {
     if (estMouvementValide(x,y)) {
       ajouterPierre(x, y);
+      tour = tour.autre();
       return true;
     } else {
       return false;
@@ -113,4 +114,25 @@ public class Goban {
   public PierrePoint[][] getPointJoueArray() {
     return this.pointJoueArray;
   }
+  
+  public String toString() {
+      String result = "Plateau : ";
+      
+      for (int i=0;i<width;i++){
+          for(int j=0;j<width;j++){
+              if(pointJoueArray[j][i]!=null){
+                  result+= pointJoueArray[j][i].toString()+" ";
+              }
+              else{
+                  result+= " ";
+              }
+          }
+        result += "\n";
+      }
+            
+      return result;
+      
+  }
+  
+  
 }
