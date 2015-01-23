@@ -12,10 +12,16 @@ import static jeudego.Couleur.NOIR;
  * @author zhaoshuli
  */
 public class PierrePoint {
-  int x;
-  int y;
-  Couleur couleur;
+  public int x;
+  public int y;
+  public Couleur couleur;
 
+  PierrePoint(PierrePoint p) {
+    this.x = p.x;
+    this.y = p.y;
+    this.couleur = p.couleur;
+  }
+  
   PierrePoint(int x, int y, Couleur c) {
     this.x = x;
     this.y = y;
@@ -46,6 +52,6 @@ public class PierrePoint {
       res = this.couleur == NOIR ? "N" : "B";
       return res;
   }
-  
+   
   
 }

@@ -19,7 +19,7 @@ public class InterfaceClavier {
     this.goban = goban;
   }
 
-  public boolean tourDeJeu() {
+  /*public boolean tourDeJeu() {
     if (sc == null) {
       sc = new Scanner(System.in);
     }
@@ -33,7 +33,7 @@ public class InterfaceClavier {
     System.out.println("Entrer l'ordonnée");
     int y = sc.nextInt();
     return goban.tourDeJeu(x, y);
-  }
+  }*/
 
   public void avertirMouvementInvalide() {
     System.err.println("Mouvement invalide");
