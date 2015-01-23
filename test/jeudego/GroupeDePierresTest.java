@@ -62,6 +62,9 @@ public class GroupeDePierresTest {
     groupeAttendu.add(g.getPierre(1, 0));
     
     GroupeDePierres groupe = new GroupeDePierres(g.getPierre(0, 0), g);
+    
+    //System.out.print(groupe);
+    
     for (int x=0; x<g.getWidth(); x++) {
       for (int y=0; y<g.getWidth(); y++) {
         PierrePoint pierre = g.getPierre(x, y);
@@ -82,14 +85,13 @@ public class GroupeDePierresTest {
         groupeAttendu.add(g.getPierre(0, 1));
         groupeAttendu.add(g.getPierre(1, 0));
         GroupeDePierres groupe = new GroupeDePierres(g.getPierre(0, 0), g);
-
-        int i = 0 ;
         
         for( PierrePoint p : groupe)
         {
-            assertEquals(p,groupeAttendu.get(i));
-            i++;
+            assertTrue(groupeAttendu.contains(p));
         }
+        
+        assertEquals(groupeAttendu.size(),groupe.size());
     }
 
     /**

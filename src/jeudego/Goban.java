@@ -52,7 +52,20 @@ public class Goban {
     int[][] positions = {{-1,0},{1,0},{0,-1},{0,1}};
     for (int[] pos : positions){
       PierrePoint pierre = getPierre(x+pos[0], y+pos[1]);
-      if (pierre != null) pierres.add(pierre);
+      if (pierre != null) 
+          pierres.add(pierre);
+    }
+    return pierres;
+  }
+  
+    public ArrayList<PierrePoint> getPierresAutourDeNull(int x, int y) {
+    ArrayList<PierrePoint> pierres = new ArrayList<>();
+    int[][] positions = {{-1,0},{1,0},{0,-1},{0,1}};
+    for (int[] pos : positions){
+      PierrePoint pierre = getPierre(x+pos[0], y+pos[1]);
+      if (x+pos[0] < 0 || x+pos[0] > this.width || y+pos[1] < 0 || y+pos[1] > this.width ) 
+          continue;
+      pierres.add(pierre);
     }
     return pierres;
   }

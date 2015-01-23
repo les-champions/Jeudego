@@ -39,10 +39,12 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
     
     private void ajouter(PierrePoint p)
     {
+       // System.out.println(p);
         for (PierrePoint k : plateau.getPierresAutourDe(p.x, p.y))
         {
             if(k != null && k.couleur == c && !groupe.contains(k))
             {
+                //System.out.println(k);
                 groupe.add(k);
                 ajouter(k);
             }
@@ -87,6 +89,11 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
         return lr;
     }
     */
+    
+    public int size()
+    {
+        return groupe.size();
+    }
     public Boolean groupeComplet()
     {
         //Marche 
@@ -99,7 +106,7 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
         int lr = 0 ;
         for(PierrePoint p : groupe)
         {
-            for( PierrePoint n : plateau.getPierresAutourDe(p.x, p.y))
+            for( PierrePoint n : plateau.getPierresAutourDeNull(p.x, p.y))
             {
                 if(n == null)
                 {
@@ -107,6 +114,7 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
                 }
             }
         }
+        //System.out.println(lr);
         return (lr > 0 ? false : true);
     }
 }
