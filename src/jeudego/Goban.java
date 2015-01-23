@@ -20,6 +20,7 @@ public class Goban {
   public int width=9;
   private PierrePoint pointJoueArray[][];//liste des pierres poses sur le plateau
   private Couleur tour; // qui a son tour
+  private int nbrToursPasses = 0; // Le nombre de fois successives qu'un joueur a passé son tour
   
   
   
@@ -81,6 +82,7 @@ public class Goban {
 
   private boolean estMouvementValide(int x, int y) {
     if (!estSurPlateau(x,y)) return false;
+    if (partieTerminee()) return false; // On ne peut plus jouer après la fin de la partie
     
     PierrePoint pierre=new PierrePoint(x, y);
     for (PierrePoint[] ligne : pointJoueArray){
@@ -98,13 +100,14 @@ public class Goban {
    * @return
    */
   public boolean passerTour() {
+	nbrToursPasses ++;
     tour = tour.autre();
     return true;
   }
 
   public boolean partieTerminee() {
-    // TODO Implémenter ça
-    return false;
+    // La parie se termine lorsque deux joueurs passent leur tour successivement
+    return nbrToursPasses == 2;
   }
   
   public int getWidth() {
