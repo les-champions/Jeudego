@@ -116,14 +116,10 @@ public class GobanTest {
     @Test
     public void testTourDeJeu() {
         System.out.println("tourDeJeu");
-        int x = 0;
-        int y = 0;
-        Goban instance = null;
-        boolean expResult = false;
-        boolean result = instance.tourDeJeu(x, y);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Goban instance = new Goban(5);
+        assertEquals("Mouvement valide", true, instance.tourDeJeu(1, 2));
+        assertEquals("Mouvement invalide", false, instance.tourDeJeu(11, 2));
+        assertEquals("Mouvement valide après un mouvement invalide", true, instance.tourDeJeu(2, 2));
     }
 
     /**
