@@ -64,15 +64,15 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
         return groupe.contains(p);
     }
     
-    public int liberteRestantes()
+/*    public int liberteRestantes()
     {
         //Marche 
         /*
         BB*
         B**
         ***
-        lr => 3 // 4
-        */
+        lr => 3 // 4*/
+       /* 
         int lr = 0 ;
         for(PierrePoint p : groupe)
         {
@@ -85,5 +85,28 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
             }
         }
         return lr;
+    }
+    */
+    public Boolean groupeComplet()
+    {
+        //Marche 
+        /*
+        BB*
+        B**
+        ***
+        lr => 3 // 4*/
+        
+        int lr = 0 ;
+        for(PierrePoint p : groupe)
+        {
+            for( PierrePoint n : plateau.getPierresAutourDe(p.x, p.y))
+            {
+                if(n == null)
+                {
+                    lr+=1;
+                }
+            }
+        }
+        return (lr > 0 ? false : true);
     }
 }

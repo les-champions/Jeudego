@@ -90,14 +90,12 @@ public class GroupeDePierresTest {
             assertEquals(p,groupeAttendu.get(i));
             i++;
         }
-        
-        
     }
 
     /**
      * Test of liberteRestantes method, of class GroupeDePierres.
      */
-    @Test
+/*    @Test
     public void testLiberteRestantes() {
         System.out.println("liberteRestantes");
         Goban g = createGoban();
@@ -107,6 +105,22 @@ public class GroupeDePierresTest {
         groupeAttendu.add(g.getPierre(1, 0));
         GroupeDePierres groupe = new GroupeDePierres(g.getPierre(0, 0), g);
         assertEquals(groupe.liberteRestantes(), 3);
+    }*/
+    
+        @Test
+        public void testGroupeComplet() {
+        System.out.println("liberteRestantes");
+        Goban g = createGoban();
+        ArrayList<PierrePoint> groupeAttendu = new ArrayList<>();
+        groupeAttendu.add(g.getPierre(0, 0));
+        groupeAttendu.add(g.getPierre(0, 1));
+        groupeAttendu.add(g.getPierre(1, 0));
+        GroupeDePierres groupe = new GroupeDePierres(g.getPierre(0, 0), g);
+        for(PierrePoint p : groupe)
+        {
+            
+        }
+        assertEquals(groupe.groupeComplet(), false);
     }
 
 }
