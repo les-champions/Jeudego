@@ -158,13 +158,8 @@ public class GobanTest {
      */
     @Test
     public void testGetWidth() {
-        System.out.println("getWidth");
-        Goban instance = null;
-        int expResult = 0;
-        int result = instance.getWidth();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+		int widths[] = {1, 5, 50, 10000};
+		for (int w: widths) assertEquals(w, new Goban(w).getWidth());
     }
 
     /**
