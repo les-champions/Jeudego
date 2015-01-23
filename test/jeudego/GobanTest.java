@@ -128,12 +128,11 @@ public class GobanTest {
     @Test
     public void testPasserTour() {
         System.out.println("passerTour");
-        Goban instance = null;
-        boolean expResult = false;
-        boolean result = instance.passerTour();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Goban gob = new Goban(2);
+        gob.passerTour();
+        assertEquals("Si les noirs passent leur tour, c'est aux blancs de jouer", Couleur.BLANC, gob.getTour());
+        gob.passerTour();
+        assertEquals("Si les blancs passent leur tour, c'est aux noirs de jouer", Couleur.NOIR, gob.getTour());
     }
 
     /**
