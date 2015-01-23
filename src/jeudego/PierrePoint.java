@@ -38,16 +38,14 @@ public class PierrePoint {
   }
   
     public boolean equals(Object o) {
-        if (o == null || !(o instanceof PierrePoint))
-        {
+        if (o == null || !(o instanceof PierrePoint)){
             return false;
         }
         PierrePoint pierre = (PierrePoint) o;
     return (pierre.x == this.x && pierre.y == this.y && pierre.couleur == this.couleur);
   }
   
-  public int hashCode()
-  {
+  public int hashCode(){
       return ( Integer.toString(x)+Integer.toString(y)+(couleur == Couleur.NOIR ? "0" : "1") ).hashCode();
   }
   
