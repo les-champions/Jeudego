@@ -85,10 +85,12 @@ public class Goban {
    */
   public boolean tourDeJeu(int x, int y) {
     if (estMouvementValide(x,y)) {
+      System.out.println(tour+" joue en ("+x+","+y+")");
       ajouterPierre(x, y);
       tour = tour.autre();
       return true;
     } else {
+        System.out.println("Mouvement invalide; réessayez svp");
       return false;
     }
   }
@@ -113,13 +115,14 @@ public class Goban {
    * @return
    */
   public boolean passerTour() {
-	nbrToursPasses ++;
+    System.out.println(tour+" passe son tour !");
+    nbrToursPasses ++;
     tour = tour.autre();
     return true;
   }
 
   public boolean partieTerminee() {
-    // La parie se termine lorsque deux joueurs passent leur tour successivement
+    // La partie se termine lorsque deux joueurs passent leur tour successivement
     return nbrToursPasses == 2;
   }
   

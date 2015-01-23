@@ -20,7 +20,7 @@ public class Main {
      * @throws java.io.FileNotFoundException
    */
   public static void main(String[] args) throws FileNotFoundException,IOException{
-    final int size = 9;
+    final int size = 15;
     Goban goban = new Goban(size);
     GoGUI gui = new GoGUI(size, size,goban);
     

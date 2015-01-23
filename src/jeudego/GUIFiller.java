@@ -38,14 +38,14 @@ PierrePoint[][] logicArr;
         for (int i = s_x; i < e_x; i++){
             for(int j = s_y; j < e_y; j++){
                 if(logicArr[i][j]==null){
-                    GUIarr[i][j].setIcon(new ImageIcon("res/fond.jpeg"));
+                    GUIarr[i][j].setIcon(new ImageIcon("res/fond.png"));
                 }
                 else {
                     if("N".equals(logicArr[i][j].toString())){
-                        GUIarr[i][j].setIcon(new ImageIcon("res/Noir/20.png"));
+                        GUIarr[i][j].setIcon(new ImageIcon("res/Noir/30.png"));
                     }
                     if(logicArr[i][j].toString().equals("B")){
-                        GUIarr[i][j].setIcon(new ImageIcon("res/Blanc/20-30.png"));
+                        GUIarr[i][j].setIcon(new ImageIcon("res/Blanc/30.png"));
                     }
                 }
             }
