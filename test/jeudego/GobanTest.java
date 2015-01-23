@@ -143,6 +143,7 @@ public class GobanTest {
         System.out.println("partieTerminee");
         Goban instance = new Goban(5);
         assertEquals("La partie n'est pas terminée au début", false, instance.partieTerminee());
+        instance.passerTour();
         instance.tourDeJeu(1,1);
         assertEquals("La partie n'est pas terminée après un tour", false, instance.partieTerminee());
         instance.passerTour();

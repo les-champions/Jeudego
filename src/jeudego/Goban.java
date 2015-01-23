@@ -23,7 +23,7 @@ public class Goban {
   private PierrePoint pointJoueArray[][];//liste des pierres poses sur le plateau
   private Couleur tour; // qui a son tour
   private int nbrToursPasses = 0; // Le nombre de fois successives qu'un joueur a passé son tour
-  public Logger l;
+  
   
   
   public Goban(int width){
@@ -89,6 +89,7 @@ public class Goban {
   public boolean tourDeJeu(int x, int y) {
     if (estMouvementValide(x,y)) {
       l.log(Level.INFO,tour+" joue en ("+x+","+y+")");
+      nbrToursPasses = 0;
       ajouterPierre(x, y);
       tour = tour.autre();
       return true;
