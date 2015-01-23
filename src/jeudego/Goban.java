@@ -23,6 +23,7 @@ public class Goban {
   private PierrePoint pointJoueArray[][];//liste des pierres poses sur le plateau
   private Couleur tour; // qui a son tour
   private int nbrToursPasses = 0; // Le nombre de fois successives qu'un joueur a passé son tour
+  protected Logger l;
   
   
   
