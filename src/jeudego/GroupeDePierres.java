@@ -103,18 +103,20 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
         ***
         lr => 3 // 4*/
         
-        int lr = 0 ;
+        //int lr = 0 ;
         for(PierrePoint p : groupe)
         {
             for( PierrePoint n : plateau.getPierresAutourDeNull(p.x, p.y))
             {
                 if(n == null)
                 {
-                    lr+=1;
+                    //lr+=1;
+                    return false;
                 }
             }
         }
         //System.out.println(lr);
-        return (lr > 0 ? false : true);
+        return true;
+        //return (lr > 0 ? false : true);
     }
 }
