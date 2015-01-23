@@ -141,12 +141,16 @@ public class GobanTest {
     @Test
     public void testPartieTerminee() {
         System.out.println("partieTerminee");
-        Goban instance = null;
-        boolean expResult = false;
-        boolean result = instance.partieTerminee();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Goban instance = new Goban(5);
+        assertEquals("La partie n'est pas terminée au début", false, instance.partieTerminee());
+        instance.tourDeJeu(1,1);
+        assertEquals("La partie n'est pas terminée après un tour", false, instance.partieTerminee());
+        instance.passerTour();
+        assertEquals("La partie n'est pas terminée après un tour passé", false, instance.partieTerminee());
+        instance.passerTour();
+        assertEquals("La partie est terminée après deux tours passés", true, instance.partieTerminee());
+        instance.tourDeJeu(2, 3); // Le tour n'est pas possible
+        assertEquals("La partie reste terminée même quand on essaie de continuer à jouer", true, instance.partieTerminee());
     }
 
     /**
