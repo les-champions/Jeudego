@@ -68,8 +68,8 @@ public class CouleurTest {
         System.out.println("toString");
         Couleur cb = Couleur.BLANC;
         Couleur cn = Couleur.NOIR;
-        assertEquals(cn.toString(), Couleur.NOIR);
-        assertEquals(cb.toString(), Couleur.BLANC);
+        assertEquals(cn.toString(), "noir");
+        assertEquals(cb.toString(), "blanc");
     }
         
 
@@ -79,12 +79,12 @@ public class CouleurTest {
     @Test
     public void testAutre() {
         System.out.println("autre");
-        Couleur instance = null;
-        Couleur expResult = null;
-        Couleur result = instance.autre();
-        assertEquals(expResult, result);
+        Couleur cb = Couleur.BLANC;
+        Couleur cn = Couleur.NOIR;
+        assertEquals(cn.autre(), Couleur.BLANC);
+        assertEquals(cb.autre(), Couleur.NOIR);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

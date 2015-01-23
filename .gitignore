@@ -7,3 +7,6 @@ nbproject/private/private.properties
 nbproject/private/private.xml
 
 .jacocoverage/*
+.classpath
+.project
+bin/
