@@ -87,8 +87,6 @@ public class GobanTest {
      */
     @Test
     public void testEstSurPlateau() {
-            //return (x>=0 && y>=0 && x<width && y<width);
-
         System.out.println("testEstSurPlateau");
         
         Goban g = new Goban(5);
@@ -96,9 +94,6 @@ public class GobanTest {
         assertEquals(g.estSurPlateau(0, 0),true);
         assertEquals(g.estSurPlateau(-1, 3),false);
         assertEquals(g.estSurPlateau(3, 3),true);
-
-        
-        // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
