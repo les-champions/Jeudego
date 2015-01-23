@@ -31,6 +31,11 @@ public class PierrePoint {
     return (pierre.x == this.x && pierre.y == this.y && pierre.couleur == this.couleur);
   }
   
+  public int hashCode()
+  {
+      return ( Integer.toString(x)+Integer.toString(y)+(couleur == Couleur.NOIR ? "0" : "1") ).hashCode();
+  }
+  
   public boolean equalsPosition(PierrePoint pierre) {
     if (pierre==null){
       return false;
