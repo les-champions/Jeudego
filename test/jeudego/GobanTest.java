@@ -102,12 +102,12 @@ public class GobanTest {
     @Test
     public void testGetTour() {
         System.out.println("getTour");
-        Goban instance = null;
-        Couleur expResult = null;
-        Couleur result = instance.getTour();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Goban instance = new Goban(5);
+        assertEquals("Ce sont toujours les noirs qui commencent", Couleur.NOIR, instance.getTour());
+        instance.tourDeJeu(2, 2);
+        assertEquals("Après un coup valide des noirs, c'est aux blancs de jouer", Couleur.BLANC, instance.getTour());
+        instance.tourDeJeu(20, 2);
+        assertEquals("Après un coup invalide des blancs, c'est toujours aux blancs de jouer", Couleur.BLANC, instance.getTour());
     }
 
     /**
@@ -116,14 +116,10 @@ public class GobanTest {
     @Test
     public void testTourDeJeu() {
         System.out.println("tourDeJeu");
-        int x = 0;
-        int y = 0;
-        Goban instance = null;
-        boolean expResult = false;
-        boolean result = instance.tourDeJeu(x, y);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Goban instance = new Goban(5);
+        assertEquals("Mouvement valide", true, instance.tourDeJeu(1, 2));
+        assertEquals("Mouvement invalide", false, instance.tourDeJeu(11, 2));
+        assertEquals("Mouvement valide après un mouvement invalide", true, instance.tourDeJeu(2, 2));
     }
 
     /**
@@ -132,12 +128,11 @@ public class GobanTest {
     @Test
     public void testPasserTour() {
         System.out.println("passerTour");
-        Goban instance = null;
-        boolean expResult = false;
-        boolean result = instance.passerTour();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Goban gob = new Goban(2);
+        gob.passerTour();
+        assertEquals("Si les noirs passent leur tour, c'est aux blancs de jouer", Couleur.BLANC, gob.getTour());
+        gob.passerTour();
+        assertEquals("Si les blancs passent leur tour, c'est aux noirs de jouer", Couleur.NOIR, gob.getTour());
     }
 
     /**
@@ -146,12 +141,16 @@ public class GobanTest {
     @Test
     public void testPartieTerminee() {
         System.out.println("partieTerminee");
-        Goban instance = null;
-        boolean expResult = false;
-        boolean result = instance.partieTerminee();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Goban instance = new Goban(5);
+        assertEquals("La partie n'est pas terminée au début", false, instance.partieTerminee());
+        instance.tourDeJeu(1,1);
+        assertEquals("La partie n'est pas terminée après un tour", false, instance.partieTerminee());
+        instance.passerTour();
+        assertEquals("La partie n'est pas terminée après un tour passé", false, instance.partieTerminee());
+        instance.passerTour();
+        assertEquals("La partie est terminée après deux tours passés", true, instance.partieTerminee());
+        instance.tourDeJeu(2, 3); // Le tour n'est pas possible
+        assertEquals("La partie reste terminée même quand on essaie de continuer à jouer", true, instance.partieTerminee());
     }
 
     /**
@@ -159,13 +158,8 @@ public class GobanTest {
      */
     @Test
     public void testGetWidth() {
-        System.out.println("getWidth");
-        Goban instance = null;
-        int expResult = 0;
-        int result = instance.getWidth();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+		int widths[] = {1, 5, 50, 10000};
+		for (int w: widths) assertEquals(w, new Goban(w).getWidth());
     }
 
     /**
