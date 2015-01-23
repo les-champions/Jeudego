@@ -103,11 +103,11 @@ public class GobanTest {
     public void testGetTour() {
         System.out.println("getTour");
         Goban instance = new Goban(5);
-        System.out.println("Ce sont toujours les noirs qui commencent");
-        assertEquals(Couleur.NOIR, instance.getTour());
+        assertEquals("Ce sont toujours les noirs qui commencent", Couleur.NOIR, instance.getTour());
         instance.tourDeJeu(2, 2);
-        System.out.println("Après un coup valide des noirs, c'est aux blancs de jouer");
-        assertEquals(Couleur.BLANC, instance.getTour());
+        assertEquals("Après un coup valide des noirs, c'est aux blancs de jouer", Couleur.BLANC, instance.getTour());
+        instance.tourDeJeu(20, 2);
+        assertEquals("Après un coup invalide des blancs, c'est toujours aux blancs de jouer", Couleur.BLANC, instance.getTour());
     }
 
     /**
