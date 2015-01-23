@@ -33,10 +33,6 @@ public class PierrePoint {
     this.y = y;
   }
 
-  public boolean equals(PierrePoint pierre) {
-    return (pierre.x == this.x && pierre.y == this.y && pierre.couleur == this.couleur);
-  }
-  
     public boolean equals(Object o) {
         if (o == null || !(o instanceof PierrePoint)){
             return false;

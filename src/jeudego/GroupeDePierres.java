@@ -20,13 +20,11 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
     List<PierrePoint> groupe;
     
     @Override
-    public Iterator<PierrePoint> iterator()
-    {
+    public Iterator<PierrePoint> iterator(){
         return groupe.iterator();
     }
     
-    public GroupeDePierres(PierrePoint p, Goban g)
-    {
+    public GroupeDePierres(PierrePoint p, Goban g){
         c = p.couleur;
         plateau = g;
         groupe = new ArrayList<>();
@@ -36,12 +34,9 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
 
     }
     
-    private void ajouter(PierrePoint p)
-    {
-        for (PierrePoint k : plateau.getPierresAutourDe(p.x, p.y))
-        {
-            if(k != null && k.couleur == c && !groupe.contains(k))
-            {
+    private void ajouter(PierrePoint p){
+        for (PierrePoint k : plateau.getPierresAutourDe(p.x, p.y)){
+            if(k != null && k.couleur == c && !groupe.contains(k)){
                 groupe.add(k);
                 ajouter(k);
             }
@@ -50,25 +45,19 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
     
 
     
-    public Boolean appartientA(PierrePoint p)
-    {
+    public Boolean appartientA(PierrePoint p){
         return groupe.contains(p);
     }
     
     
-    public int size()
-    {
+    public int size(){
         return groupe.size();
     }
-    public Boolean groupeComplet()
-    {
+    public Boolean groupeComplet(){
        
-        for(PierrePoint p : groupe)
-        {
-            for( PierrePoint n : plateau.getPierresAutourDeNull(p.x, p.y))
-            {
-                if(n == null)
-                {
+        for(PierrePoint p : groupe){
+            for( PierrePoint n : plateau.getPierresAutourDeNull(p.x, p.y)){
+                if(n == null){
                     return false;
                 }
             }
