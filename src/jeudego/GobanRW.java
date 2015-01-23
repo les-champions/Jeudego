@@ -49,7 +49,6 @@ public class GobanRW {
 
 
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
     

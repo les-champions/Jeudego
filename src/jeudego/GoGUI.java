@@ -20,6 +20,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -112,7 +113,7 @@ public class GoGUI extends JFrame implements KeyListener{
     public void draw() {
 
         if(!threads.isEmpty()){
-            System.out.println("Calculation in progress... please wait");
+            goban.l.log(Level.INFO,"Calculation in progress... please wait");
             return;
         }
         
@@ -120,12 +121,12 @@ public class GoGUI extends JFrame implements KeyListener{
         for(int i=0; i < 2 ; i++){
             for(int j=0; j < 2 ; j++){
         
-                int s_x=i*width/2;
-                int s_y=j*height/2;
-                int e_x=(i+1)*width/2;
-                int e_y=(j+1)*height/2;
+                int sx=i*width/2;
+                int sy=j*height/2;
+                int ex=(i+1)*width/2;
+                int ey=(j+1)*height/2;
                 
-                Thread currentThread = new Thread(new GUIFiller(s_x,e_x,s_y,e_y,GUIarray,goban.getPointJoueArray()));
+                Thread currentThread = new Thread(new GUIFiller(sx,ex,sy,ey,GUIarray,goban.getPointJoueArray()));
                 currentThread.setUncaughtExceptionHandler(eHandler);
                 threads.add(i+j, currentThread);
                 

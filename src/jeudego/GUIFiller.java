@@ -13,19 +13,19 @@ import javax.swing.JButton;
  * @author IAZERTYUIOPI
  */
 public class GUIFiller implements Runnable{
-int s_x;
-int e_x;
-int s_y;
-int e_y;
+int sx;
+int ex;
+int sy;
+int ey;
 JButton[][] GUIarr;
 PierrePoint[][] logicArr;
     
-    GUIFiller(int s_x, int e_x, int s_y, int e_y, JButton[][] GUIarr, PierrePoint[][] logicArr) {
+    GUIFiller(int sx, int ex, int sy, int ey, JButton[][] GUIarr, PierrePoint[][] logicArr) {
     
-        this.s_x = s_x;
-        this.e_x = e_x;
-        this.s_y = s_y;
-        this.e_y = e_y;
+        this.sx = sx;
+        this.ex = ex;
+        this.sy = sy;
+        this.ey = ey;
         this.GUIarr = GUIarr;
         this.logicArr = logicArr;
         
@@ -35,8 +35,8 @@ PierrePoint[][] logicArr;
     public void run() {
         
         
-        for (int i = s_x; i < e_x; i++){
-            for(int j = s_y; j < e_y; j++){
+        for (int i = sx; i < ex; i++){
+            for(int j = sy; j < ey; j++){
                 if(logicArr[i][j]==null){
                     GUIarr[i][j].setIcon(new ImageIcon("res/fond.png"));
                 }

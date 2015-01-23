@@ -6,6 +6,7 @@
 package jeudego;
 
 import java.util.Scanner;
+import java.util.logging.Level;
 
 /**
  * 
@@ -36,7 +37,7 @@ public class InterfaceClavier {
   }*/
 
   public void avertirMouvementInvalide() {
-    System.err.println("Mouvement invalide");
+    goban.l.log(Level.INFO,"Mouvement invalide");
   }
 
   public void close() {

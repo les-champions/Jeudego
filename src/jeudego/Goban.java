@@ -8,6 +8,8 @@ package jeudego;
 import static jeudego.Couleur.*;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -21,10 +23,11 @@ public class Goban {
   private PierrePoint pointJoueArray[][];//liste des pierres poses sur le plateau
   private Couleur tour; // qui a son tour
   private int nbrToursPasses = 0; // Le nombre de fois successives qu'un joueur a passé son tour
-  
+  public Logger l;
   
   
   public Goban(int width){
+    l = Logger.getLogger("JEU");
     pointJoueArray=new PierrePoint[width][width];
     tour=NOIR;
     this.width = width;
@@ -85,12 +88,12 @@ public class Goban {
    */
   public boolean tourDeJeu(int x, int y) {
     if (estMouvementValide(x,y)) {
-      System.out.println(tour+" joue en ("+x+","+y+")");
+      l.log(Level.INFO,tour+" joue en ("+x+","+y+")");
       ajouterPierre(x, y);
       tour = tour.autre();
       return true;
     } else {
-        System.out.println("Mouvement invalide; réessayez svp");
+        l.log(Level.INFO,"Mouvement invalide; réessayez svp");
       return false;
     }
   }
@@ -115,7 +118,7 @@ public class Goban {
    * @return
    */
   public boolean passerTour() {
-    System.out.println(tour+" passe son tour !");
+    l.log(Level.INFO,tour+" passe son tour !");
     nbrToursPasses ++;
     tour = tour.autre();
     return true;

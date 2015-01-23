@@ -1,5 +1,7 @@
 package jeudego;
 
+import java.util.logging.Level;
+
 public class Jeu {
 
   private Goban goban;
@@ -13,8 +15,8 @@ public class Jeu {
   }
 
   public void jouer() {
-      System.out.println("Bonjour et bienvenue");
-      System.out.println("Appuyez sur 'p' pour passer votre tour, cliquez sur le plateau pour jouer");
+      goban.l.log(Level.INFO,"Bonjour et bienvenue");
+      goban.l.log(Level.INFO,"Appuyez sur 'p' pour passer votre tour, cliquez sur le plateau pour jouer");
     while (!goban.partieTerminee()) {
       //ui.tourDeJeu();
     }

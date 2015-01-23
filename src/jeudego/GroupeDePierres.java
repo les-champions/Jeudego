@@ -22,7 +22,6 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
     @Override
     public Iterator<PierrePoint> iterator()
     {
-        //Iterator<PierrePoint> iPP = groupe.iterator();
         return groupe.iterator();
     }
     
@@ -39,56 +38,23 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
     
     private void ajouter(PierrePoint p)
     {
-       // System.out.println(p);
         for (PierrePoint k : plateau.getPierresAutourDe(p.x, p.y))
         {
             if(k != null && k.couleur == c && !groupe.contains(k))
             {
-                //System.out.println(k);
                 groupe.add(k);
                 ajouter(k);
             }
         }
     }
     
-   /*public void supprimer(PierrePoint p)
-    {
-        groupe.remove(p);
-    }
-    
-    public void supprimer(Collection<PierrePoint> p)
-    {
-        groupe.removeAll(p);
-    }*/    
+
     
     public Boolean appartientA(PierrePoint p)
     {
         return groupe.contains(p);
     }
     
-/*    public int liberteRestantes()
-    {
-        //Marche 
-        /*
-        BB*
-        B**
-        ***
-        lr => 3 // 4*/
-       /* 
-        int lr = 0 ;
-        for(PierrePoint p : groupe)
-        {
-            for( PierrePoint n : plateau.getPierresAutourDe(p.x, p.y))
-            {
-                if(n == null)
-                {
-                    lr+=1;
-                }
-            }
-        }
-        return lr;
-    }
-    */
     
     public int size()
     {
@@ -96,27 +62,17 @@ public class GroupeDePierres implements Iterable<PierrePoint> {
     }
     public Boolean groupeComplet()
     {
-        //Marche 
-        /*
-        BB*
-        B**
-        ***
-        lr => 3 // 4*/
-        
-        //int lr = 0 ;
+       
         for(PierrePoint p : groupe)
         {
             for( PierrePoint n : plateau.getPierresAutourDeNull(p.x, p.y))
             {
                 if(n == null)
                 {
-                    //lr+=1;
                     return false;
                 }
             }
         }
-        //System.out.println(lr);
         return true;
-        //return (lr > 0 ? false : true);
     }
 }
