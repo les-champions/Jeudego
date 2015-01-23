@@ -11,6 +11,7 @@ package jeudego;
  */
 
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
@@ -87,9 +88,10 @@ public class GoGUI extends JFrame implements KeyListener{
         GUIarray = new JButton[width][height];
         for(int i=0;i<width;i++){
             for(int j=0;j<width;j++){
-                GUIarray[i][j]=new JButton(new ImageIcon("res/fond.jpeg"));
+                GUIarray[i][j]=new JButton(new ImageIcon("res/fond.png"));
                 GUIarray[i][j].addMouseListener(mouseListener);
                 GUIarray[i][j].setFocusable(false);
+                GUIarray[i][j].setPreferredSize(new Dimension(30,30));
                 panel.add(GUIarray[i][j]);
             }
         }
@@ -99,7 +101,6 @@ public class GoGUI extends JFrame implements KeyListener{
         add(panel);
 
         //init view        
-        setSize(width*40,height*40);
         pack();
         setVisible(true);
         setResizable(false);
@@ -151,7 +152,6 @@ public class GoGUI extends JFrame implements KeyListener{
     public void keyPressed(KeyEvent ke) {
 
         if(ke.getExtendedKeyCode()==80){
-            System.out.println("horreur");
             goban.passerTour();
         };
         

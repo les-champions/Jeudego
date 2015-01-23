@@ -80,7 +80,7 @@ public class GobanRW {
                 tokenizer  = new StringTokenizer(ligne," \t");
                 while(tokenizer.hasMoreTokens()){
                     readToken = tokenizer.nextToken();
-                    System.out.print(readToken.equals("N"));
+                    //System.out.print(readToken.equals("N"));
                     if(readToken.equals("N")){
                         c = NOIR;
                     }
